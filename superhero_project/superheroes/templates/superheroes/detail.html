@@ -8,10 +8,10 @@
 </head>
 <body>
     <h1>{{single_hero.name}}</h1>
-    <h2>{{single_hero.alter_ego}}</h2>
-    <h2>{{single_hero.primary_ability}}</h2>
-    <h2>{{single_hero.secondary_ability}}</h2>
-    <h2>{{single_hero.catchphrase}}</h2>
-
+    <h2>Also known as... {{single_hero.alter_ego}}</h2>
+    <h2>With the power of... {{single_hero.primary_ability}}</h2>
+    <h2>And also... {{single_hero.secondary_ability}}</h2>
+    <h2>And often heard shouting "{{single_hero.catchphrase}}!"</h2>
+    <a href="{% url 'superheroes:index' %}">Return to Home</a>
 </body>
 </html>
