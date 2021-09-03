@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Superhero Index</title>
-</head>
-<body>
-    <h1>Wow it's fkn nothing</h1>
+{% extends "superheroes/base.html" %}
+
+{% block title %}Test? Tests.{% endblock %}
+
+{% block content %}
+<h1>Wow it's fkn nothing</h1>
     {% load static %}
     <img src="{% static 'Axe-Cop.jpg' %}" alt="Axe Cop">
     <ul>
@@ -19,5 +15,4 @@
         {% endfor %}
     </ul>
     <a href="{% url 'superheroes:create' %}">Build-a-Hero</a>
-</body>
-</html>
+{% endblock %}

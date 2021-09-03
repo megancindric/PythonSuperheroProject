@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Build-a-Hero</title>
-</head>
-<body>
+{% extends "superheroes/base.html" %}
+{% block title %}Build-a-hero{% endblock %}
+{% block content %}
     <form action ="{% url 'superheroes:create' %}", method="POST">
         {% csrf_token %}
         Name: <input type="text", name="name", id="name"><br />
@@ -16,6 +10,4 @@
         Catchphrase: <input type="text", name="catchphrase", id="catchphrase"><br />
         <input type="submit" value="Add!">
     </form>
-    <a href="{% url 'superheroes:index' %}">Return to Home</a>
-</body>
-</html>
+{% endblock %}
