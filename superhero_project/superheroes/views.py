@@ -31,26 +31,28 @@ def create(request):
     else:
         return render(request, 'superheroes/create.html')
 
-def delete(request):
-    #popup window asking for confirmation
-    #if yes, proceed, if no, do nothing
-    pass
-
-def edit(request, hero_id):
-    #render view w/ hero details populating a form
-    #User can enter new values if they want
-    #On submission, will grab existing superhero & update
+def delete(request, hero_id):
+    current_hero = Superhero.objects.get(pk=hero_id)
     if request.method == "POST":
-        existing_superhero = Superhero.objects.get(pk = hero_id)
-        existing_superhero.name = request.POST.get('name')
-        existing_superhero.alter_ego = request.POST.get('alter_ego')
-        existing_superhero.primary_ability = request.POST.get('primary_ability')
-        existing_superhero.secondary_ability = request.POST.get('secondary_ability')
-        existing_superhero.catchphrase = request.POST.get('catchphrase')
-        existing_superhero.save()
+        current_hero.delete()
         return HttpResponseRedirect(reverse('superheroes:index'))
     else:
-        current_hero = Superhero.objects.get(pk=hero_id)
+        context = {
+        'current_hero': current_hero
+        }
+        return render(request, 'superheroes/delete.html', context)
+
+def edit(request, hero_id):
+    current_hero = Superhero.objects.get(pk=hero_id)
+    if request.method == "POST":
+        current_hero.name = request.POST.get('name')
+        current_hero.alter_ego = request.POST.get('alter_ego')
+        current_hero.primary_ability = request.POST.get('primary_ability')
+        current_hero.secondary_ability = request.POST.get('secondary_ability')
+        current_hero.catchphrase = request.POST.get('catchphrase')
+        current_hero.save()
+        return HttpResponseRedirect(reverse('superheroes:index'))
+    else:
         context = {
         'current_hero': current_hero
         }
