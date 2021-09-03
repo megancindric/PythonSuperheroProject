@@ -7,12 +7,19 @@
     <title>{% block title %}Super Duper Yah Yoobetcha{% endblock %}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 </head>
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand">Super Duper</a>
+        {% block navbar%}
+            <a class="btn btn-outline-success" href="{% url 'superheroes:create' %}">Build-a-Hero</a>
+            <a class="btn btn-outline-success" href="{% url 'superheroes:index' %}">Return Home</a>
+        {% endblock %}
+    </div>
+</nav>
 <body>
     <h1>Template testing B)</h1>
     <div id="content">
         {% block content %} {% endblock %}
     </div>
-    <a href="{% url 'superheroes:index' %}">Return to Home</a>
-
 </body>
 </html>
