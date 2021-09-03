@@ -7,7 +7,16 @@
     <title>Change-a-Hero</title>
 </head>
 <body>
-    
+    <form action ="{% url 'superheroes:edit' current_hero.id %}", method="POST">
+        {% csrf_token %}
+        Name: <input type="text", name="name", id="name" value="{{ current_hero.name }}"><br />
+        Alter Ego: <input type="text", name="alter_ego", id="alter_ego" value="{{ current_hero.alter_ego }}"><br />
+        Primary Ability: <input type="text", name="primary_ability", id="primary_ability" value="{{ current_hero.primary_ability }}"><br />
+        Secondary Ability: <input type="text", name="secondary_ability", id="secondary_ability" value="{{ current_hero.secondary_ability }}"><br />
+        Catchphrase: <input type="text", name="catchphrase", id="catchphrase" value="{{ current_hero.catchphrase }}"><br />
+        <input type="submit" value="Update Hero">
+    </form>
+    <a href="{% url 'superheroes:index' %}">Return to Home</a>
     
 </body>
 </html>
