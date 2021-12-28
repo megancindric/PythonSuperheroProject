@@ -1,3 +1,4 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,19 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Super Duper Yah Yoobetcha{% endblock %}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static '/base.css' %}">
 </head>
-<nav class="navbar navbar-light bg-light">
-    <div class="container-flex">
-        <a class="navbar-brand">Super Duper</a>
-        {% block navbar%}
-            <a class="btn btn-outline-success" href="{% url 'superheroes:create' %}">Build-a-Hero</a>
-            <a class="btn btn-outline-success" href="{% url 'superheroes:index' %}">Return Home</a>
-        {% endblock %}
-    </div>
-</nav>
 <body>
-    <h1>Template testing B)</h1>
-    <div id="content">
+
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark">
+        <a class="navbar-brand">Superhero Creator</a>
+        {% block navbar%}
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <a class="nav-item nav-link" href="{% url 'superheroes:create' %}">Build-a-Hero</a>
+                  <a class="nav-item nav-link" href="{% url 'superheroes:index' %}">Home</a>
+                </div>
+              </div>
+        {% endblock %}
+</nav>
+    <div class="container">
         {% block content %} {% endblock %}
     </div>
 </body>

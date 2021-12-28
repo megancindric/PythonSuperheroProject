@@ -1,0 +1,25 @@
+.header {
+    color: teal;
+    text-align: center;
+}
+
+.img-fluid{
+    max-width: 50%
+}
+
+.navbar{
+    padding-right: 1rem;
+    padding-left: 1rem;
+    background-color:teal;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+}
+
+
+.list-group-item{
+    display: flex;
+    justify-content: space-between;
+}

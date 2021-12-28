@@ -1,13 +1,30 @@
 {% extends "superheroes/base.html" %}
 {% block title %}Build-a-hero{% endblock %}
 {% block content %}
+<h1 class="header">Create a New Hero!</h1>
+
     <form action ="{% url 'superheroes:create' %}", method="POST">
         {% csrf_token %}
-        Name: <input type="text", name="name", id="name"><br />
-        Alter Ego: <input type="text", name="alter_ego", id="alter_ego"><br />
-        Primary Ability: <input type="text", name="primary_ability", id="primary_ability"><br />
-        Secondary Ability: <input type="text", name="secondary_ability", id="secondary_ability"><br />
-        Catchphrase: <input type="text", name="catchphrase", id="catchphrase"><br />
-        <input type="submit" value="Add!">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" name="name" id="name"/>
+        </div>
+        <div class="form-group">
+            <label for="alter_ego">Alter Ego:</label>
+            <input type="text" class="form-control" name="alter_ego" id="alter_ego"/>
+        </div>
+        <div class="form-group">
+            <label for="primary_ability">Primary Ability:</label>
+            <input type="text" class="form-control" name="primary_ability" id="primary_ability"/>
+        </div>
+        <div class="form-group">
+            <label for="secondary_ability">Secondary Ability:</label>
+            <input type="text" class="form-control" name="secondary_ability" id="secondary_ability"/>
+        </div>
+        <div class="form-group">
+            <label for="catchphrase">Catchphrase:</label>
+            <input type="text" class="form-control" name="catchphrase" id="catchphrase"/>
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Create Hero</button>
     </form>
 {% endblock %}
