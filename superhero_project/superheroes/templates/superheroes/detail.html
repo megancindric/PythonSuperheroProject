@@ -1,8 +1,7 @@
 {% extends "superheroes/base.html" %} 
 {% block title %}Superhero Details{% endblock %}
 {% block content %}
-<h1 class="header">Create a New Hero</h1>
-<h1>{{single_hero.name}}</h1>
+<h1 class="header">Details for {{single_hero.name}}</h1>
 <h2>Also known as... {{single_hero.alter_ego}}</h2>
 <h2>With the power of... {{single_hero.primary_ability}}</h2>
 <h2>And also... {{single_hero.secondary_ability}}</h2>
